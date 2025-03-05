@@ -129,7 +129,7 @@
                             <i class="fa-solid fa-envelope"></i>
                             <div class="information tmp-link-animation">
                                 <span>E-Mail</span>
-                                <a href="#" class="number">dg2007xd@gmail.com</a>
+                                <a href="mailto:dg2007xd@gmail.com" class="number">dg2007xd@gmail.com</a>
                             </div>
                         </div>
                         <!-- single contact information end -->
@@ -572,9 +572,11 @@
                                 </a>
                             </div>
                             <p class="description"><span>Prepárese</span> Para Crear Grandes Cosas</p>
-                            <form action="#" class="newsletter-form-1 mt--40">
-                                <input type="email" placeholder="Correo Electrónico">
-                                <span class="form-icon"><i class="fa-regular fa-envelope"></i></span>
+                            <form id="newsletter-form" class="newsletter-form-1 mt--40">
+                                <input type="email" id="newsletter-email" placeholder="Correo Electrónico" required>
+                                <button type="submit" class="form-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -688,6 +690,33 @@
             });
         });
     </script>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            let name = document.getElementById("contact-name").value;
+            let phone = document.getElementById("contact-phone").value;
+            let email = document.getElementById("contact-email").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("contact-message").value;
+
+            let mailtoLink = `mailto:dg2007xd@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\n\nMensaje:\n${message}`)}`;
+
+            window.location.href = mailtoLink;
+        });
+    </script>
+    <script>
+        document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+    
+            let email = document.getElementById("newsletter-email").value;
+            let mailtoLink = `mailto:dg2007xd@gmail.com?subject=Nuevo correo&body=Correo: ${encodeURIComponent(email)}`;
+    
+            window.location.href = mailtoLink;
+        });
+    </script>
+
     <script src="assets/js/vendor/jquery.js"></script>
     <script src="assets/js/vendor/jquery-ui.min.js"></script>
     <script src="assets/js/vendor/waypoints.min.js"></script>
