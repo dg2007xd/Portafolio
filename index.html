@@ -708,7 +708,7 @@
     </script>
     <script>
         document.getElementById("newsletter-form").addEventListener("submit", function(event) {
-            event.preventDefault(); 
+            event.preventDefault(); // Evita que Netlify intente procesar el formulario
     
             let email = document.getElementById("newsletter-email").value;
             let mailtoLink = `mailto:dg2007xd@gmail.com?subject=Nuevo correo&body=Correo: ${encodeURIComponent(email)}`;
